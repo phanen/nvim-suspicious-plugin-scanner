@@ -32,6 +32,12 @@ VERSION_TOKEN_RE = re.compile(
     r"(?:^|[._-])v?\d+(?:\.\d+){0,3}(?:[._-]?(?:alpha|beta|rc)\d*)?(?:$|[._-])",
     re.IGNORECASE,
 )
+IGNORED_URL_PATTERNS = (
+    re.compile(
+        r"^https://sourceforge\.net/projects/gnuwin32/files/make/[^/]+/[^/]+\.zip$",
+        re.IGNORECASE,
+    ),
+)
 
 
 @dataclass(frozen=True)
@@ -150,6 +156,10 @@ def load_plugins(db_url: str) -> list[Plugin]:
     return plugins
 
 
+def is_ignored_url(url: str) -> bool:
+    return any(pattern.search(url) for pattern in IGNORED_URL_PATTERNS)
+
+
 def extract_zip_links(readme_text: str) -> tuple[str, ...]:
     seen: set[str] = set()
     links: list[str] = []
@@ -161,6 +171,8 @@ def extract_zip_links(readme_text: str) -> tuple[str, ...]:
             continue
         basename = filename[:-4]
         if not VERSION_TOKEN_RE.search(basename):
+            continue
+        if is_ignored_url(cleaned):
             continue
         if cleaned not in seen:
             seen.add(cleaned)
