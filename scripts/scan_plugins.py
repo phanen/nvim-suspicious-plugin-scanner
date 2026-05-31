@@ -28,6 +28,10 @@ ZIP_URL_RE = re.compile(
     r"https?://[^\s<>'\"`\])]+?\.zip(?:[?#][^\s<>'\"`)]*)?",
     re.IGNORECASE,
 )
+VERSION_TOKEN_RE = re.compile(
+    r"(?:^|[._-])v?\d+(?:\.\d+){0,3}(?:[._-]?(?:alpha|beta|rc)\d*)?(?:$|[._-])",
+    re.IGNORECASE,
+)
 
 
 @dataclass(frozen=True)
@@ -151,6 +155,13 @@ def extract_zip_links(readme_text: str) -> tuple[str, ...]:
     links: list[str] = []
     for match in ZIP_URL_RE.findall(readme_text):
         cleaned = match.rstrip(".,;:!?")
+        path = urllib.parse.urlparse(cleaned).path
+        filename = path.rsplit("/", 1)[-1]
+        if not filename.lower().endswith(".zip"):
+            continue
+        basename = filename[:-4]
+        if not VERSION_TOKEN_RE.search(basename):
+            continue
         if cleaned not in seen:
             seen.add(cleaned)
             links.append(cleaned)
@@ -201,13 +212,17 @@ def render_findings(findings: list[Finding]) -> str:
     if not findings:
         return "No suspicious `.zip` links found.\n"
 
-    lines: list[str] = []
+    lines = [
+        "| Plugin | README | ZIP |",
+        "| --- | --- | --- |",
+    ]
     for finding in findings:
-        lines.append(f"### [{finding.plugin.full_name}]({finding.plugin.url})")
-        lines.append(f"- README: [raw]({finding.plugin.readme_url})")
         for link in finding.zip_links:
-            lines.append(f"- ZIP: [{link}]({link})")
-        lines.append("")
+            lines.append(
+                f"| [{finding.plugin.full_name}]({finding.plugin.url}) | "
+                f"[raw]({finding.plugin.readme_url}) | "
+                f"[zip]({link}) |"
+            )
 
     return "\n".join(lines).rstrip() + "\n"
 
