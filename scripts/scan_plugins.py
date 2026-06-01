@@ -15,7 +15,6 @@ import urllib.parse
 import urllib.request
 from dataclasses import dataclass
 
-
 DB_URL = (
     "https://github.com/alex-popov-tech/store.nvim.crawler/releases/latest/"
     "download/db_minified.json"
@@ -201,12 +200,8 @@ def scan_plugins(plugins: list[Plugin], workers: int) -> tuple[list[Finding], li
     errors: list[FetchError] = []
 
     with concurrent.futures.ThreadPoolExecutor(max_workers=workers) as executor:
-        future_map = {
-            executor.submit(scan_plugin, plugin): plugin for plugin in plugins
-        }
-        for index, future in enumerate(
-            concurrent.futures.as_completed(future_map), start=1
-        ):
+        future_map = {executor.submit(scan_plugin, plugin): plugin for plugin in plugins}
+        for index, future in enumerate(concurrent.futures.as_completed(future_map), start=1):
             result = future.result()
             if isinstance(result, Finding):
                 findings.append(result)
@@ -257,9 +252,7 @@ def render_errors(errors: list[FetchError]) -> str:
         "",
     ]
     for item in errors:
-        lines.append(
-            f"- `{item.plugin.full_name}`: `{item.error}`"
-        )
+        lines.append(f"- `{item.plugin.full_name}`: `{item.error}`")
     lines.extend(["", "</details>", ""])
     return "\n".join(lines)
 
