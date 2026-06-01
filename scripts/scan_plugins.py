@@ -37,6 +37,10 @@ IGNORED_URL_PATTERNS = (
         r"^https://sourceforge\.net/projects/gnuwin32/files/make/[^/]+/[^/]+\.zip$",
         re.IGNORECASE,
     ),
+    re.compile(
+        r"^https://github\.com/ryanoasis/nerd-fonts/releases/download/[^/]+/[^/]+\.zip$",
+        re.IGNORECASE,
+    ),
 )
 
 
