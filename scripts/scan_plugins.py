@@ -223,11 +223,13 @@ def render_findings(findings: list[Finding]) -> str:
     if not findings:
         return "No suspicious `.zip` links found.\n"
 
+    sorted_findings = sorted(findings, key=lambda f: f.plugin.full_name)
+
     lines = [
         "| Plugin | README | ZIP |",
         "| --- | --- | --- |",
     ]
-    for finding in findings:
+    for finding in sorted_findings:
         for link in finding.zip_links:
             lines.append(
                 f"| [{finding.plugin.full_name}]({finding.plugin.url}) | "
