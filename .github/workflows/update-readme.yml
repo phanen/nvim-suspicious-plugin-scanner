@@ -14,20 +14,23 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v7
         with:
           python-version: "3.11"
 
+      - name: Sync dependencies
+        run: uv sync
+
       - name: Validate script
-        run: python3 -m py_compile scripts/scan_plugins.py
+        run: uv run python -m py_compile scripts/scan_plugins.py
 
       - name: Regenerate reports
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: python3 scripts/scan_plugins.py
+        run: uv run python scripts/scan_plugins.py
 
       - name: Commit updated reports
         run: |

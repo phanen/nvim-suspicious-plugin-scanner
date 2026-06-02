@@ -14,12 +14,16 @@ import urllib.error
 import urllib.parse
 import urllib.request
 from dataclasses import dataclass
+from typing import Any
+
+from github import Auth, Github
+from github.GithubException import GithubException
+from github.GithubRetry import GithubRetry
 
 DB_URL = (
     "https://github.com/alex-popov-tech/store.nvim.crawler/releases/latest/"
     "download/db_minified.json"
 )
-GITHUB_API_BASE = "https://api.github.com"
 README_PATH = "README.md"
 REPORT_PATH = "report.json"
 REQUEST_TIMEOUT = 20
@@ -27,6 +31,7 @@ RETRY_COUNT = 3
 USER_AGENT = "nvim-suspicious-plugin-scanner/1.0"
 FORCE_PUSH_STREAK_THRESHOLD = 4
 FORCE_PUSH_LOOKBACK = 12
+FORCE_PUSH_UPDATED_WITHIN_DAYS = 30
 ZIP_URL_RE = re.compile(
     r"https?://[^\s<>'\"`\])]+?\.zip(?:[?#][^\s<>'\"`)]*)?",
     re.IGNORECASE,
@@ -54,6 +59,7 @@ class Plugin:
     url: str
     readme_ref: str
     readme_url: str
+    updated_at: dt.datetime | None
 
 
 @dataclass(frozen=True)
@@ -67,6 +73,37 @@ class Finding:
 class FetchError:
     plugin: Plugin
     error: str
+
+
+class GitHubApiClient:
+    def __init__(self, token: str | None) -> None:
+        auth = Auth.Token(token) if token else None
+        self.github = Github(
+            auth=auth,
+            per_page=100,
+            retry=GithubRetry(),
+        )
+
+    def fetch_force_push_events(self, full_name: str) -> list[dict[str, Any]]:
+        _, data = self.github.requester.requestJsonAndCheck(
+            "GET",
+            f"/repos/{full_name}/activity",
+            parameters={
+                "activity_type": "force_push",
+                "time_period": "month",
+            },
+            headers={
+                "Accept": "application/vnd.github+json",
+                "X-GitHub-Api-Version": "2026-03-10",
+            },
+        )
+        if not isinstance(data, list):
+            return []
+        return data
+
+    def fetch_commit_message(self, full_name: str, sha: str) -> str:
+        commit = self.github.get_repo(full_name).get_commit(sha=sha)
+        return commit.commit.message
 
 
 def parse_args() -> argparse.Namespace:
@@ -143,6 +180,15 @@ def normalize_readme_ref(readme_ref: str) -> str:
     return readme_ref.lstrip("/")
 
 
+def parse_updated_at(value: Any) -> dt.datetime | None:
+    if not isinstance(value, str) or not value:
+        return None
+    try:
+        return dt.datetime.fromisoformat(value.replace("Z", "+00:00"))
+    except ValueError:
+        return None
+
+
 def build_raw_readme_url(full_name: str, readme_ref: str) -> str:
     return f"https://raw.githubusercontent.com/{full_name}/{normalize_readme_ref(readme_ref)}"
 
@@ -170,6 +216,7 @@ def load_plugins(db_url: str) -> list[Plugin]:
                 url=url,
                 readme_ref=normalize_readme_ref(readme_ref),
                 readme_url=build_raw_readme_url(full_name, readme_ref),
+                updated_at=parse_updated_at(item.get("updated_at")),
             )
         )
 
@@ -202,24 +249,6 @@ def is_versioned_zip_link(url: str) -> bool:
     return bool(VERSION_TOKEN_RE.search(basename))
 
 
-def fetch_json(url: str) -> Any:
-    return json.loads(fetch_text(url))
-
-
-def build_force_push_activity_url(full_name: str) -> str:
-    query = urllib.parse.urlencode(
-        {
-            "activity_type": "force_push",
-            "time_period": "month",
-        }
-    )
-    return f"{GITHUB_API_BASE}/repos/{full_name}/activity?{query}"
-
-
-def build_commit_url(full_name: str, sha: str) -> str:
-    return f"{GITHUB_API_BASE}/repos/{full_name}/commits/{sha}"
-
-
 def normalize_commit_message(message: str) -> str:
     first_line = message.splitlines()[0].strip()
     return re.sub(r"\s+", " ", first_line).lower()
@@ -229,10 +258,18 @@ def is_readme_update_message(message: str) -> bool:
     return bool(README_UPDATE_RE.search(normalize_commit_message(message)))
 
 
-def has_repeated_force_push_readme_pattern(plugin: Plugin) -> bool:
-    events = fetch_json(build_force_push_activity_url(plugin.full_name))
-    if not isinstance(events, list):
+def should_check_force_push(plugin: Plugin) -> bool:
+    if plugin.updated_at is None:
         return False
+    age = dt.datetime.now(dt.timezone.utc) - plugin.updated_at.astimezone(dt.timezone.utc)
+    return age <= dt.timedelta(days=FORCE_PUSH_UPDATED_WITHIN_DAYS)
+
+
+def has_repeated_force_push_readme_pattern(
+    plugin: Plugin,
+    github_api: GitHubApiClient,
+) -> bool:
+    events = github_api.fetch_force_push_events(plugin.full_name)
 
     streak = 0
     checked = 0
@@ -241,10 +278,7 @@ def has_repeated_force_push_readme_pattern(plugin: Plugin) -> bool:
         if not isinstance(after, str) or not after:
             break
 
-        commit = fetch_json(build_commit_url(plugin.full_name, after))
-        message = commit.get("commit", {}).get("message", "")
-        if not isinstance(message, str):
-            break
+        message = github_api.fetch_commit_message(plugin.full_name, after)
 
         checked += 1
         if is_readme_update_message(message):
@@ -260,7 +294,10 @@ def has_repeated_force_push_readme_pattern(plugin: Plugin) -> bool:
     return False
 
 
-def scan_plugin(plugin: Plugin) -> Finding | FetchError | None:
+def scan_plugin(
+    plugin: Plugin,
+    github_api: GitHubApiClient,
+) -> Finding | FetchError | None:
     try:
         readme_text = fetch_text(plugin.readme_url)
     except Exception as exc:
@@ -275,25 +312,39 @@ def scan_plugin(plugin: Plugin) -> Finding | FetchError | None:
             signal="versioned zip",
         )
 
+    if not should_check_force_push(plugin):
+        return None
+
     try:
-        if has_repeated_force_push_readme_pattern(plugin):
+        if has_repeated_force_push_readme_pattern(plugin, github_api):
             return Finding(
                 plugin=plugin,
                 zip_links=zip_links,
                 signal="4x force_push + update readme",
             )
+    except GithubException as exc:
+        return FetchError(
+            plugin=plugin,
+            error=f"{type(exc).__name__}: {exc.status} {exc.data}",
+        )
     except Exception as exc:
         return FetchError(plugin=plugin, error=str(exc))
 
     return None
 
 
-def scan_plugins(plugins: list[Plugin], workers: int) -> tuple[list[Finding], list[FetchError]]:
+def scan_plugins(
+    plugins: list[Plugin],
+    workers: int,
+    github_api: GitHubApiClient,
+) -> tuple[list[Finding], list[FetchError]]:
     findings: list[Finding] = []
     errors: list[FetchError] = []
 
     with concurrent.futures.ThreadPoolExecutor(max_workers=workers) as executor:
-        future_map = {executor.submit(scan_plugin, plugin): plugin for plugin in plugins}
+        future_map = {
+            executor.submit(scan_plugin, plugin, github_api): plugin for plugin in plugins
+        }
         for index, future in enumerate(concurrent.futures.as_completed(future_map), start=1):
             result = future.result()
             if isinstance(result, Finding):
@@ -369,7 +420,7 @@ def render_readme(
         "",
         "Scans the `store.nvim` plugin database and flags suspicious plugins.",
         "",
-        "- Raw JSON report: [report.json](https://raw.githubusercontent.com/phanen/nvim-suspicious-plugin-scanner/refs/heads/master/report.json)",
+        "- Raw JSON report: [report.json](https://raw.githubusercontent.com/phanen/nvim-suspicious-plugin-scanner/master/report.json)",
         "",
         f"- Last updated: `{scanned_at}`",
         f"- Database: [{db_url}]({db_url})",
@@ -440,13 +491,15 @@ def write_report(path: str, report: dict[str, Any]) -> None:
 def main() -> int:
     args = parse_args()
     workers = max(1, args.workers) if args.workers else choose_worker_count()
+    github_token = os.environ.get("GITHUB_TOKEN") or os.environ.get("GH_TOKEN")
+    github_api = GitHubApiClient(github_token)
 
     print(f"loading plugin database from {args.db_url}", file=sys.stderr)
     plugins = load_plugins(args.db_url)
     print(f"loaded {len(plugins)} github plugins", file=sys.stderr)
     print(f"using {workers} concurrent workers", file=sys.stderr)
 
-    findings, errors = scan_plugins(plugins, workers)
+    findings, errors = scan_plugins(plugins, workers, github_api)
     readme = render_readme(
         db_url=args.db_url,
         plugins=plugins,
