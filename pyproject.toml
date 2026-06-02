@@ -4,5 +4,5 @@ version = "0.1.0"
 description = "Scan suspicious Neovim plugins from store.nvim."
 requires-python = ">=3.11"
 dependencies = [
-    "pygithub>=2.5.0",
+    "pygithub>=2.9.1",
 ]
