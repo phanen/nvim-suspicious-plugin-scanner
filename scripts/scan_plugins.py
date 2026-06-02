@@ -267,9 +267,6 @@ def scan_plugin(plugin: Plugin) -> Finding | FetchError | None:
         return FetchError(plugin=plugin, error=str(exc))
 
     zip_links = extract_zip_links(readme_text)
-    if not zip_links:
-        return None
-
     versioned_links = tuple(link for link in zip_links if is_versioned_zip_link(link))
     if versioned_links:
         return Finding(
@@ -326,13 +323,13 @@ def render_findings(findings: list[Finding]) -> str:
         "| --- | --- | --- | --- |",
     ]
     for finding in sorted_findings:
-        for link in finding.zip_links:
-            lines.append(
-                f"| [{finding.plugin.full_name}]({finding.plugin.url}) | "
-                f"[raw]({finding.plugin.readme_url}) | "
-                f"[zip]({link}) | "
-                f"`{finding.signal}` |"
-            )
+        zip_cell = ", ".join(f"[zip]({link})" for link in finding.zip_links) or "-"
+        lines.append(
+            f"| [{finding.plugin.full_name}]({finding.plugin.url}) | "
+            f"[raw]({finding.plugin.readme_url}) | "
+            f"{zip_cell} | "
+            f"`{finding.signal}` |"
+        )
 
     return "\n".join(lines).rstrip() + "\n"
 
@@ -370,7 +367,7 @@ def render_readme(
     lines = [
         "# Neovim Suspicious Plugin Scanner",
         "",
-        "Scans the `store.nvim` plugin database and flags GitHub READMEs that contain direct `.zip` download links.",
+        "Scans the `store.nvim` plugin database and flags suspicious plugins.",
         "",
         "- Raw JSON report: [report.json](https://raw.githubusercontent.com/phanen/nvim-suspicious-plugin-scanner/refs/heads/master/report.json)",
         "",
