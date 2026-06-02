@@ -372,7 +372,7 @@ def render_readme(
         "",
         "Scans the `store.nvim` plugin database and flags GitHub READMEs that contain direct `.zip` download links.",
         "",
-        "- Raw JSON report: [report.json](https://raw.githubusercontent.com/phanen/nvim-suspicious-plugin-scanner/main/report.json)",
+        "- Raw JSON report: [report.json](https://raw.githubusercontent.com/phanen/nvim-suspicious-plugin-scanner/refs/heads/master/report.json)",
         "",
         f"- Last updated: `{scanned_at}`",
         f"- Database: [{db_url}]({db_url})",
