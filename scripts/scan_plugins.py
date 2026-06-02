@@ -21,6 +21,7 @@ DB_URL = (
 )
 GITHUB_API_BASE = "https://api.github.com"
 README_PATH = "README.md"
+REPORT_PATH = "report.json"
 REQUEST_TIMEOUT = 20
 RETRY_COUNT = 3
 USER_AGENT = "nvim-suspicious-plugin-scanner/1.0"
@@ -77,6 +78,11 @@ def parse_args() -> argparse.Namespace:
         "--readme-path",
         default=README_PATH,
         help="Path of the generated README file",
+    )
+    parser.add_argument(
+        "--report-path",
+        default=REPORT_PATH,
+        help="Path of the generated JSON report file",
     )
     parser.add_argument(
         "--workers",
@@ -366,6 +372,8 @@ def render_readme(
         "",
         "Scans the `store.nvim` plugin database and flags GitHub READMEs that contain direct `.zip` download links.",
         "",
+        "- Raw JSON report: [report.json](https://raw.githubusercontent.com/phanen/nvim-suspicious-plugin-scanner/main/report.json)",
+        "",
         f"- Last updated: `{scanned_at}`",
         f"- Database: [{db_url}]({db_url})",
         f"- GitHub plugins scanned: `{len(plugins)}`",
@@ -390,6 +398,48 @@ def write_readme(path: str, content: str) -> None:
         handle.write(content)
 
 
+def render_report(
+    *,
+    db_url: str,
+    plugins: list[Plugin],
+    findings: list[Finding],
+    errors: list[FetchError],
+) -> dict[str, Any]:
+    scanned_at = dt.datetime.now(dt.timezone.utc).replace(microsecond=0).isoformat()
+    return {
+        "scanned_at": scanned_at,
+        "database_url": db_url,
+        "github_plugins_scanned": len(plugins),
+        "suspicious_plugins": len(findings),
+        "readme_fetch_errors": len(errors),
+        "findings": [
+            {
+                "plugin": finding.plugin.full_name,
+                "plugin_url": finding.plugin.url,
+                "readme_url": finding.plugin.readme_url,
+                "signal": finding.signal,
+                "zip_links": list(finding.zip_links),
+            }
+            for finding in findings
+        ],
+        "errors": [
+            {
+                "plugin": item.plugin.full_name,
+                "plugin_url": item.plugin.url,
+                "readme_url": item.plugin.readme_url,
+                "error": item.error,
+            }
+            for item in errors
+        ],
+    }
+
+
+def write_report(path: str, report: dict[str, Any]) -> None:
+    with open(path, "w", encoding="utf-8") as handle:
+        json.dump(report, handle, indent=2, ensure_ascii=False)
+        handle.write("\n")
+
+
 def main() -> int:
     args = parse_args()
     workers = max(1, args.workers) if args.workers else choose_worker_count()
@@ -406,9 +456,16 @@ def main() -> int:
         findings=findings,
         errors=errors,
     )
+    report = render_report(
+        db_url=args.db_url,
+        plugins=plugins,
+        findings=findings,
+        errors=errors,
+    )
     write_readme(args.readme_path, readme)
+    write_report(args.report_path, report)
     print(
-        f"wrote {args.readme_path} with {len(findings)} suspicious plugins",
+        f"wrote {args.readme_path} and {args.report_path} with {len(findings)} suspicious plugins",
         file=sys.stderr,
     )
     return 0

@@ -24,20 +24,20 @@ jobs:
       - name: Validate script
         run: python3 -m py_compile scripts/scan_plugins.py
 
-      - name: Regenerate README
+      - name: Regenerate reports
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python3 scripts/scan_plugins.py
 
-      - name: Commit updated README
+      - name: Commit updated reports
         run: |
-          if git diff --quiet -- README.md; then
-            echo "No README changes"
+          if git diff --quiet -- README.md report.json; then
+            echo "No report changes"
             exit 0
           fi
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add README.md
-          git commit -m "chore: update suspicious plugin report"
+          git add README.md report.json
+          git commit -m "chore: update suspicious plugin reports"
           git push
