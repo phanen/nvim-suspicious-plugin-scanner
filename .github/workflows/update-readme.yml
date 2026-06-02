@@ -21,7 +21,12 @@ jobs:
         with:
           python-version: "3.11"
 
+      - name: Validate script
+        run: python3 -m py_compile scripts/scan_plugins.py
+
       - name: Regenerate README
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python3 scripts/scan_plugins.py
 
       - name: Commit updated README

@@ -19,10 +19,13 @@ DB_URL = (
     "https://github.com/alex-popov-tech/store.nvim.crawler/releases/latest/"
     "download/db_minified.json"
 )
+GITHUB_API_BASE = "https://api.github.com"
 README_PATH = "README.md"
 REQUEST_TIMEOUT = 20
 RETRY_COUNT = 3
 USER_AGENT = "nvim-suspicious-plugin-scanner/1.0"
+FORCE_PUSH_STREAK_THRESHOLD = 4
+FORCE_PUSH_LOOKBACK = 12
 ZIP_URL_RE = re.compile(
     r"https?://[^\s<>'\"`\])]+?\.zip(?:[?#][^\s<>'\"`)]*)?",
     re.IGNORECASE,
@@ -31,6 +34,7 @@ VERSION_TOKEN_RE = re.compile(
     r"(?:^|[._-])v?\d+(?:\.\d+){0,3}(?:[._-]?(?:alpha|beta|rc)\d*)?(?:$|[._-])",
     re.IGNORECASE,
 )
+README_UPDATE_RE = re.compile(r"^update readme(?:\.md)?\b", re.IGNORECASE)
 IGNORED_URL_PATTERNS = (
     re.compile(
         r"^https://sourceforge\.net/projects/gnuwin32/files/make/[^/]+/[^/]+\.zip$",
@@ -55,6 +59,7 @@ class Plugin:
 class Finding:
     plugin: Plugin
     zip_links: tuple[str, ...]
+    signal: str
 
 
 @dataclass(frozen=True)
@@ -104,6 +109,12 @@ def fetch_text(url: str, timeout: int = REQUEST_TIMEOUT) -> str:
         "User-Agent": USER_AGENT,
         "Accept": "application/json, text/plain, text/markdown;q=0.9, */*;q=0.8",
     }
+    github_token = os.environ.get("GITHUB_TOKEN") or os.environ.get("GH_TOKEN")
+    if github_token and parsed.netloc.lower() == "api.github.com":
+        headers["Authorization"] = f"Bearer {github_token}"
+        headers["Accept"] = "application/vnd.github+json"
+        headers["X-GitHub-Api-Version"] = "2026-03-10"
+
     request = urllib.request.Request(url, headers=headers)
 
     last_error: Exception | None = None
@@ -168,19 +179,79 @@ def extract_zip_links(readme_text: str) -> tuple[str, ...]:
     links: list[str] = []
     for match in ZIP_URL_RE.findall(readme_text):
         cleaned = match.rstrip(".,;:!?")
-        path = urllib.parse.urlparse(cleaned).path
-        filename = path.rsplit("/", 1)[-1]
-        if not filename.lower().endswith(".zip"):
-            continue
-        basename = filename[:-4]
-        if not VERSION_TOKEN_RE.search(basename):
-            continue
         if is_ignored_url(cleaned):
             continue
         if cleaned not in seen:
             seen.add(cleaned)
             links.append(cleaned)
     return tuple(links)
+
+
+def is_versioned_zip_link(url: str) -> bool:
+    path = urllib.parse.urlparse(url).path
+    filename = path.rsplit("/", 1)[-1]
+    if not filename.lower().endswith(".zip"):
+        return False
+    basename = filename[:-4]
+    return bool(VERSION_TOKEN_RE.search(basename))
+
+
+def fetch_json(url: str) -> Any:
+    return json.loads(fetch_text(url))
+
+
+def build_force_push_activity_url(full_name: str) -> str:
+    query = urllib.parse.urlencode(
+        {
+            "activity_type": "force_push",
+            "time_period": "month",
+        }
+    )
+    return f"{GITHUB_API_BASE}/repos/{full_name}/activity?{query}"
+
+
+def build_commit_url(full_name: str, sha: str) -> str:
+    return f"{GITHUB_API_BASE}/repos/{full_name}/commits/{sha}"
+
+
+def normalize_commit_message(message: str) -> str:
+    first_line = message.splitlines()[0].strip()
+    return re.sub(r"\s+", " ", first_line).lower()
+
+
+def is_readme_update_message(message: str) -> bool:
+    return bool(README_UPDATE_RE.search(normalize_commit_message(message)))
+
+
+def has_repeated_force_push_readme_pattern(plugin: Plugin) -> bool:
+    events = fetch_json(build_force_push_activity_url(plugin.full_name))
+    if not isinstance(events, list):
+        return False
+
+    streak = 0
+    checked = 0
+    for event in events:
+        after = event.get("after")
+        if not isinstance(after, str) or not after:
+            break
+
+        commit = fetch_json(build_commit_url(plugin.full_name, after))
+        message = commit.get("commit", {}).get("message", "")
+        if not isinstance(message, str):
+            break
+
+        checked += 1
+        if is_readme_update_message(message):
+            streak += 1
+            if streak >= FORCE_PUSH_STREAK_THRESHOLD:
+                return True
+        else:
+            break
+
+        if checked >= FORCE_PUSH_LOOKBACK:
+            break
+
+    return False
 
 
 def scan_plugin(plugin: Plugin) -> Finding | FetchError | None:
@@ -192,7 +263,26 @@ def scan_plugin(plugin: Plugin) -> Finding | FetchError | None:
     zip_links = extract_zip_links(readme_text)
     if not zip_links:
         return None
-    return Finding(plugin=plugin, zip_links=zip_links)
+
+    versioned_links = tuple(link for link in zip_links if is_versioned_zip_link(link))
+    if versioned_links:
+        return Finding(
+            plugin=plugin,
+            zip_links=versioned_links,
+            signal="versioned zip",
+        )
+
+    try:
+        if has_repeated_force_push_readme_pattern(plugin):
+            return Finding(
+                plugin=plugin,
+                zip_links=zip_links,
+                signal="4x force_push + update readme",
+            )
+    except Exception as exc:
+        return FetchError(plugin=plugin, error=str(exc))
+
+    return None
 
 
 def scan_plugins(plugins: list[Plugin], workers: int) -> tuple[list[Finding], list[FetchError]]:
@@ -226,15 +316,16 @@ def render_findings(findings: list[Finding]) -> str:
     sorted_findings = sorted(findings, key=lambda f: f.plugin.full_name)
 
     lines = [
-        "| Plugin | README | ZIP |",
-        "| --- | --- | --- |",
+        "| Plugin | README | ZIP | Signal |",
+        "| --- | --- | --- | --- |",
     ]
     for finding in sorted_findings:
         for link in finding.zip_links:
             lines.append(
                 f"| [{finding.plugin.full_name}]({finding.plugin.url}) | "
                 f"[raw]({finding.plugin.readme_url}) | "
-                f"[zip]({link}) |"
+                f"[zip]({link}) | "
+                f"`{finding.signal}` |"
             )
 
     return "\n".join(lines).rstrip() + "\n"
