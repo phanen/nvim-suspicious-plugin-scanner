@@ -2,9 +2,9 @@
 
 Scans the `store.nvim` plugin database and flags GitHub READMEs that contain direct `.zip` download links.
 
-- Last updated: `2026-06-01T06:46:50+00:00`
+- Last updated: `2026-06-02T06:28:47+00:00`
 - Database: [https://github.com/alex-popov-tech/store.nvim.crawler/releases/latest/download/db_minified.json](https://github.com/alex-popov-tech/store.nvim.crawler/releases/latest/download/db_minified.json)
-- GitHub plugins scanned: `6342`
+- GitHub plugins scanned: `6346`
 - Suspicious plugins: `23`
 - README fetch errors: `0`
 
