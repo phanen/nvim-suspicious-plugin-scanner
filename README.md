@@ -4,11 +4,11 @@ Scans the `store.nvim` plugin database and flags suspicious plugins.
 
 - Raw JSON report: [report.json](https://raw.githubusercontent.com/phanen/nvim-suspicious-plugin-scanner/master/report.json)
 
-- Last updated: `2026-06-04T06:29:05+00:00`
+- Last updated: `2026-06-05T06:13:15+00:00`
 - Database: [https://github.com/alex-popov-tech/store.nvim.crawler/releases/latest/download/db_minified.json](https://github.com/alex-popov-tech/store.nvim.crawler/releases/latest/download/db_minified.json)
-- GitHub plugins scanned: `6352`
+- GitHub plugins scanned: `6357`
 - Suspicious plugins: `28`
-- README fetch errors: `0`
+- README fetch errors: `1`
 
 ## Suspicious Plugins
 
@@ -42,3 +42,14 @@ Scans the `store.nvim` plugin database and flags suspicious plugins.
 | [shakilbcc/flipper-complete.nvim](https://github.com/shakilbcc/flipper-complete.nvim) | [raw](https://raw.githubusercontent.com/shakilbcc/flipper-complete.nvim/main/README.md) | [zip](https://github.com/shakilbcc/flipper-complete.nvim/raw/refs/heads/main/lua/flipper-complete/complete-nvim-flipper-v2.6.zip) | `versioned zip` |
 | [treverlight1245/nvim-jump](https://github.com/treverlight1245/nvim-jump) | [raw](https://raw.githubusercontent.com/treverlight1245/nvim-jump/main/README.md) | [zip](https://github.com/treverlight1245/nvim-jump/raw/refs/heads/main/lua/jump/jump_nvim_v2.3.zip) | `versioned zip` |
 | [yassin2dev/ascii-mermaid](https://github.com/yassin2dev/ascii-mermaid) | [raw](https://raw.githubusercontent.com/yassin2dev/ascii-mermaid/master/README.md) | [zip](https://github.com/yassin2dev/ascii-mermaid/raw/refs/heads/master/ts/src/er/mermaid_ascii_v2.7.zip) | `versioned zip` |
+
+## Fetch Errors
+
+1 README requests failed during this run.
+
+<details>
+<summary>Show fetch errors</summary>
+
+- `wsdjeg/chat.nvim`: `HTTP Error 404: Not Found`
+
+</details>

@@ -1,9 +1,9 @@
 {
-  "scanned_at": "2026-06-04T06:29:05+00:00",
+  "scanned_at": "2026-06-05T06:13:15+00:00",
   "database_url": "https://github.com/alex-popov-tech/store.nvim.crawler/releases/latest/download/db_minified.json",
-  "github_plugins_scanned": 6352,
+  "github_plugins_scanned": 6357,
   "suspicious_plugins": 28,
-  "readme_fetch_errors": 0,
+  "readme_fetch_errors": 1,
   "findings": [
     {
       "plugin": "admin0076/foldergen.nvim",
@@ -256,5 +256,12 @@
       ]
     }
   ],
-  "errors": []
+  "errors": [
+    {
+      "plugin": "wsdjeg/chat.nvim",
+      "plugin_url": "https://github.com/wsdjeg/chat.nvim",
+      "readme_url": "https://raw.githubusercontent.com/wsdjeg/chat.nvim/master/README.md",
+      "error": "HTTP Error 404: Not Found"
+    }
+  ]
 }
