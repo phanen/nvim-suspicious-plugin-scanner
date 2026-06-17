@@ -1,28 +1,10 @@
 {
-  "scanned_at": "2026-06-16T07:14:28+00:00",
+  "scanned_at": "2026-06-17T06:59:28+00:00",
   "database_url": "https://github.com/alex-popov-tech/store.nvim.crawler/releases/latest/download/db_minified.json",
   "github_plugins_scanned": 6385,
-  "suspicious_plugins": 28,
+  "suspicious_plugins": 24,
   "readme_fetch_errors": 0,
   "findings": [
-    {
-      "plugin": "admin0076/foldergen.nvim",
-      "plugin_url": "https://github.com/admin0076/foldergen.nvim",
-      "readme_url": "https://raw.githubusercontent.com/admin0076/foldergen.nvim/main/README.md",
-      "signal": "versioned zip",
-      "zip_links": [
-        "https://raw.githubusercontent.com/admin0076/foldergen.nvim/main/lua/foldergen-nvim-v2.9.zip"
-      ]
-    },
-    {
-      "plugin": "aldyputra123/kaimandres.nvim",
-      "plugin_url": "https://github.com/aldyputra123/kaimandres.nvim",
-      "readme_url": "https://raw.githubusercontent.com/aldyputra123/kaimandres.nvim/main/README.md",
-      "signal": "versioned zip",
-      "zip_links": [
-        "https://github.com/aldyputra123/kaimandres.nvim/raw/refs/heads/main/lua/lualine/themes/nvim_kaimandres_v2.8.zip"
-      ]
-    },
     {
       "plugin": "angeltarcaya17/consolelog.nvim",
       "plugin_url": "https://github.com/angeltarcaya17/consolelog.nvim",
@@ -112,15 +94,6 @@
       "zip_links": []
     },
     {
-      "plugin": "gurlal-m4s/lazy-watson",
-      "plugin_url": "https://github.com/gurlal-m4s/lazy-watson",
-      "readme_url": "https://raw.githubusercontent.com/gurlal-m4s/lazy-watson/main/README.md",
-      "signal": "4x force_push + update readme",
-      "zip_links": [
-        "https://raw.githubusercontent.com/gurlal-m4s/lazy-watson/main/lua/watson_lazy_torsionless.zip"
-      ]
-    },
-    {
       "plugin": "khondakerasibulislam/nvim-lumos",
       "plugin_url": "https://github.com/khondakerasibulislam/nvim-lumos",
       "readme_url": "https://raw.githubusercontent.com/khondakerasibulislam/nvim-lumos/main/README.md",
@@ -199,15 +172,6 @@
       "signal": "versioned zip",
       "zip_links": [
         "https://raw.githubusercontent.com/riccolong/hexview.nvim/main/screenshot/nvim_hexview_1.9.zip"
-      ]
-    },
-    {
-      "plugin": "RobertAbao/grok-nvim",
-      "plugin_url": "https://github.com/RobertAbao/grok-nvim",
-      "readme_url": "https://raw.githubusercontent.com/RobertAbao/grok-nvim/master/README.md",
-      "signal": "versioned zip",
-      "zip_links": [
-        "https://raw.githubusercontent.com/RobertAbao/grok-nvim/master/lua/nvim_grok_2.1.zip"
       ]
     },
     {

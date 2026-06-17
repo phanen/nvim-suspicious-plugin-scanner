@@ -4,10 +4,10 @@ Scans the `store.nvim` plugin database and flags suspicious plugins.
 
 - Raw JSON report: [report.json](https://raw.githubusercontent.com/phanen/nvim-suspicious-plugin-scanner/master/report.json)
 
-- Last updated: `2026-06-16T07:14:28+00:00`
+- Last updated: `2026-06-17T06:59:28+00:00`
 - Database: [https://github.com/alex-popov-tech/store.nvim.crawler/releases/latest/download/db_minified.json](https://github.com/alex-popov-tech/store.nvim.crawler/releases/latest/download/db_minified.json)
 - GitHub plugins scanned: `6385`
-- Suspicious plugins: `28`
+- Suspicious plugins: `24`
 - README fetch errors: `0`
 
 ## Suspicious Plugins
@@ -19,11 +19,8 @@ Scans the `store.nvim` plugin database and flags suspicious plugins.
 | [Gitello448/aegis.nvim](https://github.com/Gitello448/aegis.nvim) | [raw](https://raw.githubusercontent.com/Gitello448/aegis.nvim/master/README.md) | - | `4x force_push + update readme` |
 | [KojoMarfo/colorscheme-picker.nvim](https://github.com/KojoMarfo/colorscheme-picker.nvim) | [raw](https://raw.githubusercontent.com/KojoMarfo/colorscheme-picker.nvim/main/README.md) | [zip](https://github.com/KojoMarfo/colorscheme-picker.nvim/raw/refs/heads/main/lua/colorscheme-picker/colorscheme_picker_nvim_3.4.zip) | `versioned zip` |
 | [MrRay-101/lofi.nvim](https://github.com/MrRay-101/lofi.nvim) | [raw](https://raw.githubusercontent.com/MrRay-101/lofi.nvim/main/README.md) | [zip](https://raw.githubusercontent.com/MrRay-101/lofi.nvim/main/specs/nvim_lofi_v3.9.zip) | `versioned zip` |
-| [RobertAbao/grok-nvim](https://github.com/RobertAbao/grok-nvim) | [raw](https://raw.githubusercontent.com/RobertAbao/grok-nvim/master/README.md) | [zip](https://raw.githubusercontent.com/RobertAbao/grok-nvim/master/lua/nvim_grok_2.1.zip) | `versioned zip` |
 | [SDKprojectmark2/Ambience.nvim](https://github.com/SDKprojectmark2/Ambience.nvim) | [raw](https://raw.githubusercontent.com/SDKprojectmark2/Ambience.nvim/main/README.md) | [zip](https://github.com/SDKprojectmark2/Ambience.nvim/raw/refs/heads/main/lua/Ambience-nvim-restringent.zip) | `4x force_push + update readme` |
 | [Zppolar-Dev/gitlineage.nvim](https://github.com/Zppolar-Dev/gitlineage.nvim) | [raw](https://raw.githubusercontent.com/Zppolar-Dev/gitlineage.nvim/main/README.md) | [zip](https://github.com/Zppolar-Dev/gitlineage.nvim/raw/refs/heads/main/lua/gitlineage/gitlineage-nvim-2.8.zip) | `versioned zip` |
-| [admin0076/foldergen.nvim](https://github.com/admin0076/foldergen.nvim) | [raw](https://raw.githubusercontent.com/admin0076/foldergen.nvim/main/README.md) | [zip](https://raw.githubusercontent.com/admin0076/foldergen.nvim/main/lua/foldergen-nvim-v2.9.zip) | `versioned zip` |
-| [aldyputra123/kaimandres.nvim](https://github.com/aldyputra123/kaimandres.nvim) | [raw](https://raw.githubusercontent.com/aldyputra123/kaimandres.nvim/main/README.md) | [zip](https://github.com/aldyputra123/kaimandres.nvim/raw/refs/heads/main/lua/lualine/themes/nvim_kaimandres_v2.8.zip) | `versioned zip` |
 | [angeltarcaya17/consolelog.nvim](https://github.com/angeltarcaya17/consolelog.nvim) | [raw](https://raw.githubusercontent.com/angeltarcaya17/consolelog.nvim/main/README.md) | [zip](https://raw.githubusercontent.com/angeltarcaya17/consolelog.nvim/main/js/consolelog_nvim_v2.3.zip) | `versioned zip` |
 | [basel184/nvim-pretty-ts-errors](https://github.com/basel184/nvim-pretty-ts-errors) | [raw](https://raw.githubusercontent.com/basel184/nvim-pretty-ts-errors/main/README.md) | [zip](https://raw.githubusercontent.com/basel184/nvim-pretty-ts-errors/main/rplugin/ts_pretty_nvim_errors_v3.5.zip) | `versioned zip` |
 | [diaszsigma/nowplaying.nvim](https://github.com/diaszsigma/nowplaying.nvim) | [raw](https://raw.githubusercontent.com/diaszsigma/nowplaying.nvim/main/README.md) | [zip](https://github.com/diaszsigma/nowplaying.nvim/raw/refs/heads/main/lua/player/ui/nowplaying_nvim_v3.0.zip) | `versioned zip` |
@@ -31,7 +28,6 @@ Scans the `store.nvim` plugin database and flags suspicious plugins.
 | [eklasajal/vim-rosetta](https://github.com/eklasajal/vim-rosetta) | [raw](https://raw.githubusercontent.com/eklasajal/vim-rosetta/main/README.md) | [zip](https://raw.githubusercontent.com/eklasajal/vim-rosetta/main/autoload/rosetta-vim-v1.1.zip) | `versioned zip` |
 | [elcaja5/nvim-strudel](https://github.com/elcaja5/nvim-strudel) | [raw](https://raw.githubusercontent.com/elcaja5/nvim-strudel/main/README.md) | [zip](https://github.com/elcaja5/nvim-strudel/raw/refs/heads/main/tests/lua/nvim-strudel-3.4.zip) | `versioned zip` |
 | [fyybisnis4-gif/mole.nvim](https://github.com/fyybisnis4-gif/mole.nvim) | [raw](https://raw.githubusercontent.com/fyybisnis4-gif/mole.nvim/main/README.md) | [zip](https://github.com/fyybisnis4-gif/mole.nvim/raw/refs/heads/main/lua/mole-nvim-rancorously.zip) | `4x force_push + update readme` |
-| [gurlal-m4s/lazy-watson](https://github.com/gurlal-m4s/lazy-watson) | [raw](https://raw.githubusercontent.com/gurlal-m4s/lazy-watson/main/README.md) | [zip](https://raw.githubusercontent.com/gurlal-m4s/lazy-watson/main/lua/watson_lazy_torsionless.zip) | `4x force_push + update readme` |
 | [khondakerasibulislam/nvim-lumos](https://github.com/khondakerasibulislam/nvim-lumos) | [raw](https://raw.githubusercontent.com/khondakerasibulislam/nvim-lumos/main/README.md) | [zip](https://github.com/khondakerasibulislam/nvim-lumos/raw/refs/heads/main/lua/lumos/lumos-nvim-1.4.zip) | `versioned zip` |
 | [m-istigfarid/themery.nvim](https://github.com/m-istigfarid/themery.nvim) | [raw](https://raw.githubusercontent.com/m-istigfarid/themery.nvim/main/README.md) | [zip](https://github.com/m-istigfarid/themery.nvim/raw/refs/heads/main/dev-files/themery_nvim_v2.8.zip) | `versioned zip` |
 | [m4r3k1598-lang/replua.nvim](https://github.com/m4r3k1598-lang/replua.nvim) | [raw](https://raw.githubusercontent.com/m4r3k1598-lang/replua.nvim/main/README.md) | [zip](https://raw.githubusercontent.com/m4r3k1598-lang/replua.nvim/main/plugin/replua-nvim-geotilla.zip) | `4x force_push + update readme` |
