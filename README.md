@@ -4,11 +4,11 @@ Scans the `store.nvim` plugin database and flags suspicious plugins.
 
 - Raw JSON report: [report.json](https://raw.githubusercontent.com/phanen/nvim-suspicious-plugin-scanner/master/report.json)
 
-- Last updated: `2026-06-29T06:28:54+00:00`
+- Last updated: `2026-06-30T06:01:48+00:00`
 - Database: [https://github.com/alex-popov-tech/store.nvim.crawler/releases/latest/download/db_minified.json](https://github.com/alex-popov-tech/store.nvim.crawler/releases/latest/download/db_minified.json)
-- GitHub plugins scanned: `6426`
+- GitHub plugins scanned: `6433`
 - Suspicious plugins: `15`
-- README fetch errors: `2`
+- README fetch errors: `0`
 
 ## Suspicious Plugins
 
@@ -29,15 +29,3 @@ Scans the `store.nvim` plugin database and flags suspicious plugins.
 | [nikhildaharwal2004/context.nvim](https://github.com/nikhildaharwal2004/context.nvim) | [raw](https://raw.githubusercontent.com/nikhildaharwal2004/context.nvim/main/README.md) | [zip](https://raw.githubusercontent.com/nikhildaharwal2004/context.nvim/main/lua/nvim_context_2.5-beta.4.zip) | `versioned zip` |
 | [riccolong/hexview.nvim](https://github.com/riccolong/hexview.nvim) | [raw](https://raw.githubusercontent.com/riccolong/hexview.nvim/main/README.md) | [zip](https://raw.githubusercontent.com/riccolong/hexview.nvim/main/screenshot/nvim_hexview_1.9.zip) | `versioned zip` |
 | [yassin2dev/ascii-mermaid](https://github.com/yassin2dev/ascii-mermaid) | [raw](https://raw.githubusercontent.com/yassin2dev/ascii-mermaid/master/README.md) | [zip](https://github.com/yassin2dev/ascii-mermaid/raw/refs/heads/master/ts/src/er/mermaid_ascii_v2.7.zip) | `versioned zip` |
-
-## Fetch Errors
-
-2 README requests failed during this run.
-
-<details>
-<summary>Show fetch errors</summary>
-
-- `julienvincent/hunk.nvim`: `HTTP Error 400: Bad Request`
-- `neovim/nvim-lspconfig`: `HTTP Error 400: Bad Request`
-
-</details>
