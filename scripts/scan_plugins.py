@@ -75,6 +75,12 @@ class FetchError:
     error: str
 
 
+@dataclass(frozen=True)
+class CommitSummary:
+    message: str
+    readme_blob_sha: str | None
+
+
 class GitHubApiClient:
     def __init__(self, token: str | None) -> None:
         auth = Auth.Token(token) if token else None
@@ -101,9 +107,17 @@ class GitHubApiClient:
             return []
         return data
 
-    def fetch_commit_message(self, full_name: str, sha: str) -> str:
+    def fetch_commit_summary(self, full_name: str, sha: str) -> CommitSummary:
         commit = self.github.get_repo(full_name).get_commit(sha=sha)
-        return commit.commit.message
+        readme_blob_sha: str | None = None
+        for file in commit.files:
+            if file.filename.lower() == "readme.md":
+                readme_blob_sha = file.sha
+                break
+        return CommitSummary(
+            message=commit.commit.message,
+            readme_blob_sha=readme_blob_sha,
+        )
 
 
 def parse_args() -> argparse.Namespace:
@@ -273,18 +287,27 @@ def has_repeated_force_push_readme_pattern(
 
     streak = 0
     checked = 0
+    readme_blob_counts: dict[str, int] = {}
+
     for event in events:
         after = event.get("after")
         if not isinstance(after, str) or not after:
             break
 
-        message = github_api.fetch_commit_message(plugin.full_name, after)
+        commit = github_api.fetch_commit_summary(plugin.full_name, after)
 
         checked += 1
-        if is_readme_update_message(message):
+        if is_readme_update_message(commit.message):
             streak += 1
+            if commit.readme_blob_sha:
+                readme_blob_counts[commit.readme_blob_sha] = (
+                    readme_blob_counts.get(commit.readme_blob_sha, 0) + 1
+                )
+
             if streak >= FORCE_PUSH_STREAK_THRESHOLD:
-                return True
+                # Same README blob pushed repeatedly = takeover spam.
+                max_count = max(readme_blob_counts.values(), default=0)
+                return max_count >= FORCE_PUSH_STREAK_THRESHOLD
         else:
             break
 
