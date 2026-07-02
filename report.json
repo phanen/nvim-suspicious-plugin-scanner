@@ -1,8 +1,8 @@
 {
-  "scanned_at": "2026-07-01T06:16:53+00:00",
+  "scanned_at": "2026-07-02T05:49:11+00:00",
   "database_url": "https://github.com/alex-popov-tech/store.nvim.crawler/releases/latest/download/db_minified.json",
-  "github_plugins_scanned": 6437,
-  "suspicious_plugins": 15,
+  "github_plugins_scanned": 6440,
+  "suspicious_plugins": 16,
   "readme_fetch_errors": 0,
   "findings": [
     {
@@ -49,6 +49,13 @@
       "zip_links": [
         "https://raw.githubusercontent.com/Gaylord-kcf/dookie.nvim/main/colors/dookie-nvim-1.4.zip"
       ]
+    },
+    {
+      "plugin": "ggandor/leap.nvim",
+      "plugin_url": "https://github.com/ggandor/leap.nvim",
+      "readme_url": "https://raw.githubusercontent.com/ggandor/leap.nvim/main/README.md",
+      "signal": "4x force_push + update readme",
+      "zip_links": []
     },
     {
       "plugin": "Gitello448/aegis.nvim",
