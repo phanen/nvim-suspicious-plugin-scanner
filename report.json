@@ -1,8 +1,8 @@
 {
-  "scanned_at": "2026-07-02T12:58:44+00:00",
+  "scanned_at": "2026-07-03T05:43:14+00:00",
   "database_url": "https://github.com/alex-popov-tech/store.nvim.crawler/releases/latest/download/db_minified.json",
-  "github_plugins_scanned": 6440,
-  "suspicious_plugins": 15,
+  "github_plugins_scanned": 6449,
+  "suspicious_plugins": 13,
   "readme_fetch_errors": 0,
   "findings": [
     {
@@ -103,30 +103,12 @@
       ]
     },
     {
-      "plugin": "riccolong/hexview.nvim",
-      "plugin_url": "https://github.com/riccolong/hexview.nvim",
-      "readme_url": "https://raw.githubusercontent.com/riccolong/hexview.nvim/main/README.md",
-      "signal": "versioned zip",
-      "zip_links": [
-        "https://raw.githubusercontent.com/riccolong/hexview.nvim/main/screenshot/nvim_hexview_1.9.zip"
-      ]
-    },
-    {
       "plugin": "SDKprojectmark2/Ambience.nvim",
       "plugin_url": "https://github.com/SDKprojectmark2/Ambience.nvim",
       "readme_url": "https://raw.githubusercontent.com/SDKprojectmark2/Ambience.nvim/main/README.md",
       "signal": "4x force_push + update readme",
       "zip_links": [
         "https://github.com/SDKprojectmark2/Ambience.nvim/raw/refs/heads/main/lua/Ambience-nvim-restringent.zip"
-      ]
-    },
-    {
-      "plugin": "yassin2dev/ascii-mermaid",
-      "plugin_url": "https://github.com/yassin2dev/ascii-mermaid",
-      "readme_url": "https://raw.githubusercontent.com/yassin2dev/ascii-mermaid/master/README.md",
-      "signal": "versioned zip",
-      "zip_links": [
-        "https://github.com/yassin2dev/ascii-mermaid/raw/refs/heads/master/ts/src/er/mermaid_ascii_v2.7.zip"
       ]
     },
     {

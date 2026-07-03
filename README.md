@@ -4,10 +4,10 @@ Scans the `store.nvim` plugin database and flags suspicious plugins.
 
 - Raw JSON report: [report.json](https://raw.githubusercontent.com/phanen/nvim-suspicious-plugin-scanner/master/report.json)
 
-- Last updated: `2026-07-02T12:58:44+00:00`
+- Last updated: `2026-07-03T05:43:14+00:00`
 - Database: [https://github.com/alex-popov-tech/store.nvim.crawler/releases/latest/download/db_minified.json](https://github.com/alex-popov-tech/store.nvim.crawler/releases/latest/download/db_minified.json)
-- GitHub plugins scanned: `6440`
-- Suspicious plugins: `15`
+- GitHub plugins scanned: `6449`
+- Suspicious plugins: `13`
 - README fetch errors: `0`
 
 ## Suspicious Plugins
@@ -27,5 +27,3 @@ Scans the `store.nvim` plugin database and flags suspicious plugins.
 | [m-istigfarid/themery.nvim](https://github.com/m-istigfarid/themery.nvim) | [raw](https://raw.githubusercontent.com/m-istigfarid/themery.nvim/main/README.md) | [zip](https://github.com/m-istigfarid/themery.nvim/raw/refs/heads/main/dev-files/themery_nvim_v2.8.zip) | `versioned zip` |
 | [m4r3k1598-lang/replua.nvim](https://github.com/m4r3k1598-lang/replua.nvim) | [raw](https://raw.githubusercontent.com/m4r3k1598-lang/replua.nvim/main/README.md) | [zip](https://raw.githubusercontent.com/m4r3k1598-lang/replua.nvim/main/plugin/replua-nvim-geotilla.zip) | `4x force_push + update readme` |
 | [nikhildaharwal2004/context.nvim](https://github.com/nikhildaharwal2004/context.nvim) | [raw](https://raw.githubusercontent.com/nikhildaharwal2004/context.nvim/main/README.md) | [zip](https://raw.githubusercontent.com/nikhildaharwal2004/context.nvim/main/lua/nvim_context_2.5-beta.4.zip) | `versioned zip` |
-| [riccolong/hexview.nvim](https://github.com/riccolong/hexview.nvim) | [raw](https://raw.githubusercontent.com/riccolong/hexview.nvim/main/README.md) | [zip](https://raw.githubusercontent.com/riccolong/hexview.nvim/main/screenshot/nvim_hexview_1.9.zip) | `versioned zip` |
-| [yassin2dev/ascii-mermaid](https://github.com/yassin2dev/ascii-mermaid) | [raw](https://raw.githubusercontent.com/yassin2dev/ascii-mermaid/master/README.md) | [zip](https://github.com/yassin2dev/ascii-mermaid/raw/refs/heads/master/ts/src/er/mermaid_ascii_v2.7.zip) | `versioned zip` |
