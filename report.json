@@ -1,9 +1,9 @@
 {
-  "scanned_at": "2026-07-17T04:53:25+00:00",
+  "scanned_at": "2026-07-18T04:39:15+00:00",
   "database_url": "https://github.com/alex-popov-tech/store.nvim.crawler/releases/latest/download/db_minified.json",
   "github_plugins_scanned": 6530,
   "suspicious_plugins": 13,
-  "readme_fetch_errors": 0,
+  "readme_fetch_errors": 1,
   "findings": [
     {
       "plugin": "basel184/nvim-pretty-ts-errors",
@@ -121,5 +121,12 @@
       ]
     }
   ],
-  "errors": []
+  "errors": [
+    {
+      "plugin": "frb121/katsuo.nvim",
+      "plugin_url": "https://github.com/frb121/katsuo.nvim",
+      "readme_url": "https://raw.githubusercontent.com/frb121/katsuo.nvim/main/README.md",
+      "error": "HTTP Error 404: Not Found"
+    }
+  ]
 }

@@ -4,11 +4,11 @@ Scans the `store.nvim` plugin database and flags suspicious plugins.
 
 - Raw JSON report: [report.json](https://raw.githubusercontent.com/phanen/nvim-suspicious-plugin-scanner/master/report.json)
 
-- Last updated: `2026-07-17T04:53:25+00:00`
+- Last updated: `2026-07-18T04:39:15+00:00`
 - Database: [https://github.com/alex-popov-tech/store.nvim.crawler/releases/latest/download/db_minified.json](https://github.com/alex-popov-tech/store.nvim.crawler/releases/latest/download/db_minified.json)
 - GitHub plugins scanned: `6530`
 - Suspicious plugins: `13`
-- README fetch errors: `0`
+- README fetch errors: `1`
 
 ## Suspicious Plugins
 
@@ -27,3 +27,14 @@ Scans the `store.nvim` plugin database and flags suspicious plugins.
 | [m-istigfarid/themery.nvim](https://github.com/m-istigfarid/themery.nvim) | [raw](https://raw.githubusercontent.com/m-istigfarid/themery.nvim/main/README.md) | [zip](https://github.com/m-istigfarid/themery.nvim/raw/refs/heads/main/dev-files/themery_nvim_v2.8.zip) | `versioned zip` |
 | [m4r3k1598-lang/replua.nvim](https://github.com/m4r3k1598-lang/replua.nvim) | [raw](https://raw.githubusercontent.com/m4r3k1598-lang/replua.nvim/main/README.md) | [zip](https://raw.githubusercontent.com/m4r3k1598-lang/replua.nvim/main/plugin/replua-nvim-geotilla.zip) | `4x force_push + update readme` |
 | [nikhildaharwal2004/context.nvim](https://github.com/nikhildaharwal2004/context.nvim) | [raw](https://raw.githubusercontent.com/nikhildaharwal2004/context.nvim/main/README.md) | [zip](https://raw.githubusercontent.com/nikhildaharwal2004/context.nvim/main/lua/nvim_context_2.5-beta.4.zip) | `versioned zip` |
+
+## Fetch Errors
+
+1 README requests failed during this run.
+
+<details>
+<summary>Show fetch errors</summary>
+
+- `frb121/katsuo.nvim`: `HTTP Error 404: Not Found`
+
+</details>
