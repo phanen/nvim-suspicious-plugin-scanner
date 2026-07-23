@@ -1,8 +1,8 @@
 {
-  "scanned_at": "2026-07-22T04:58:56+00:00",
+  "scanned_at": "2026-07-23T05:15:48+00:00",
   "database_url": "https://github.com/alex-popov-tech/store.nvim.crawler/releases/latest/download/db_minified.json",
-  "github_plugins_scanned": 6552,
-  "suspicious_plugins": 13,
+  "github_plugins_scanned": 6551,
+  "suspicious_plugins": 4,
   "readme_fetch_errors": 0,
   "findings": [
     {
@@ -15,74 +15,11 @@
       ]
     },
     {
-      "plugin": "dungz1206/vibing.nvim",
-      "plugin_url": "https://github.com/dungz1206/vibing.nvim",
-      "readme_url": "https://raw.githubusercontent.com/dungz1206/vibing.nvim/main/README.md",
-      "signal": "versioned zip",
-      "zip_links": [
-        "https://github.com/dungz1206/vibing.nvim/raw/refs/heads/main/tests/vibing_nvim_v1.5.zip"
-      ]
-    },
-    {
-      "plugin": "eklasajal/vim-rosetta",
-      "plugin_url": "https://github.com/eklasajal/vim-rosetta",
-      "readme_url": "https://raw.githubusercontent.com/eklasajal/vim-rosetta/main/README.md",
-      "signal": "versioned zip",
-      "zip_links": [
-        "https://raw.githubusercontent.com/eklasajal/vim-rosetta/main/autoload/rosetta-vim-v1.1.zip"
-      ]
-    },
-    {
-      "plugin": "elcaja5/nvim-strudel",
-      "plugin_url": "https://github.com/elcaja5/nvim-strudel",
-      "readme_url": "https://raw.githubusercontent.com/elcaja5/nvim-strudel/main/README.md",
-      "signal": "versioned zip",
-      "zip_links": [
-        "https://github.com/elcaja5/nvim-strudel/raw/refs/heads/main/tests/lua/nvim-strudel-3.4.zip"
-      ]
-    },
-    {
-      "plugin": "Gaylord-kcf/dookie.nvim",
-      "plugin_url": "https://github.com/Gaylord-kcf/dookie.nvim",
-      "readme_url": "https://raw.githubusercontent.com/Gaylord-kcf/dookie.nvim/main/README.md",
-      "signal": "versioned zip",
-      "zip_links": [
-        "https://raw.githubusercontent.com/Gaylord-kcf/dookie.nvim/main/colors/dookie-nvim-1.4.zip"
-      ]
-    },
-    {
       "plugin": "Gitello448/aegis.nvim",
       "plugin_url": "https://github.com/Gitello448/aegis.nvim",
       "readme_url": "https://raw.githubusercontent.com/Gitello448/aegis.nvim/master/README.md",
       "signal": "4x force_push + update readme",
       "zip_links": []
-    },
-    {
-      "plugin": "khondakerasibulislam/nvim-lumos",
-      "plugin_url": "https://github.com/khondakerasibulislam/nvim-lumos",
-      "readme_url": "https://raw.githubusercontent.com/khondakerasibulislam/nvim-lumos/main/README.md",
-      "signal": "versioned zip",
-      "zip_links": [
-        "https://github.com/khondakerasibulislam/nvim-lumos/raw/refs/heads/main/lua/lumos/lumos-nvim-1.4.zip"
-      ]
-    },
-    {
-      "plugin": "KojoMarfo/colorscheme-picker.nvim",
-      "plugin_url": "https://github.com/KojoMarfo/colorscheme-picker.nvim",
-      "readme_url": "https://raw.githubusercontent.com/KojoMarfo/colorscheme-picker.nvim/main/README.md",
-      "signal": "versioned zip",
-      "zip_links": [
-        "https://github.com/KojoMarfo/colorscheme-picker.nvim/raw/refs/heads/main/lua/colorscheme-picker/colorscheme_picker_nvim_3.4.zip"
-      ]
-    },
-    {
-      "plugin": "m-istigfarid/themery.nvim",
-      "plugin_url": "https://github.com/m-istigfarid/themery.nvim",
-      "readme_url": "https://raw.githubusercontent.com/m-istigfarid/themery.nvim/main/README.md",
-      "signal": "versioned zip",
-      "zip_links": [
-        "https://github.com/m-istigfarid/themery.nvim/raw/refs/heads/main/dev-files/themery_nvim_v2.8.zip"
-      ]
     },
     {
       "plugin": "m4r3k1598-lang/replua.nvim",
@@ -94,30 +31,12 @@
       ]
     },
     {
-      "plugin": "nikhildaharwal2004/context.nvim",
-      "plugin_url": "https://github.com/nikhildaharwal2004/context.nvim",
-      "readme_url": "https://raw.githubusercontent.com/nikhildaharwal2004/context.nvim/main/README.md",
-      "signal": "versioned zip",
-      "zip_links": [
-        "https://raw.githubusercontent.com/nikhildaharwal2004/context.nvim/main/lua/nvim_context_2.5-beta.4.zip"
-      ]
-    },
-    {
       "plugin": "SDKprojectmark2/Ambience.nvim",
       "plugin_url": "https://github.com/SDKprojectmark2/Ambience.nvim",
       "readme_url": "https://raw.githubusercontent.com/SDKprojectmark2/Ambience.nvim/main/README.md",
       "signal": "4x force_push + update readme",
       "zip_links": [
         "https://github.com/SDKprojectmark2/Ambience.nvim/raw/refs/heads/main/lua/Ambience-nvim-restringent.zip"
-      ]
-    },
-    {
-      "plugin": "Zppolar-Dev/gitlineage.nvim",
-      "plugin_url": "https://github.com/Zppolar-Dev/gitlineage.nvim",
-      "readme_url": "https://raw.githubusercontent.com/Zppolar-Dev/gitlineage.nvim/main/README.md",
-      "signal": "versioned zip",
-      "zip_links": [
-        "https://github.com/Zppolar-Dev/gitlineage.nvim/raw/refs/heads/main/lua/gitlineage/gitlineage-nvim-2.8.zip"
       ]
     }
   ],
