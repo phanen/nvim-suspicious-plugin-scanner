@@ -1,7 +1,7 @@
 {
-  "scanned_at": "2026-07-25T04:55:53+00:00",
+  "scanned_at": "2026-07-26T05:21:31+00:00",
   "database_url": "https://github.com/alex-popov-tech/store.nvim.crawler/releases/latest/download/db_minified.json",
-  "github_plugins_scanned": 6563,
+  "github_plugins_scanned": 6565,
   "suspicious_plugins": 4,
   "readme_fetch_errors": 0,
   "findings": [
