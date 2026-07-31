@@ -4,9 +4,9 @@ Scans the `store.nvim` plugin database and flags suspicious plugins.
 
 - Raw JSON report: [report.json](https://raw.githubusercontent.com/phanen/nvim-suspicious-plugin-scanner/master/report.json)
 
-- Last updated: `2026-07-30T04:47:39+00:00`
+- Last updated: `2026-07-31T05:24:51+00:00`
 - Database: [https://github.com/alex-popov-tech/store.nvim.crawler/releases/latest/download/db_minified.json](https://github.com/alex-popov-tech/store.nvim.crawler/releases/latest/download/db_minified.json)
-- GitHub plugins scanned: `6592`
+- GitHub plugins scanned: `6602`
 - Suspicious plugins: `4`
 - README fetch errors: `0`
 
