@@ -1,7 +1,7 @@
 {
-  "scanned_at": "2026-08-09T03:24:29+00:00",
+  "scanned_at": "2026-08-10T03:43:36+00:00",
   "database_url": "https://github.com/alex-popov-tech/store.nvim.crawler/releases/latest/download/db_minified.json",
-  "github_plugins_scanned": 6635,
+  "github_plugins_scanned": 6641,
   "suspicious_plugins": 4,
   "readme_fetch_errors": 2,
   "findings": [
@@ -42,15 +42,15 @@
   ],
   "errors": [
     {
-      "plugin": "devk0n/cmakex.nvim",
-      "plugin_url": "https://github.com/devk0n/cmakex.nvim",
-      "readme_url": "https://raw.githubusercontent.com/devk0n/cmakex.nvim/master/README.md",
+      "plugin": "zerochae/dbab.nvim",
+      "plugin_url": "https://github.com/zerochae/dbab.nvim",
+      "readme_url": "https://raw.githubusercontent.com/zerochae/dbab.nvim/main/README.md",
       "error": "HTTP Error 404: Not Found"
     },
     {
-      "plugin": "frostplexx/mason-bridge.nvim",
-      "plugin_url": "https://github.com/frostplexx/mason-bridge.nvim",
-      "readme_url": "https://raw.githubusercontent.com/frostplexx/mason-bridge.nvim/main/README.md",
+      "plugin": "zerochae/telescope-spring.nvim",
+      "plugin_url": "https://github.com/zerochae/telescope-spring.nvim",
+      "readme_url": "https://raw.githubusercontent.com/zerochae/telescope-spring.nvim/master/readme.md",
       "error": "HTTP Error 404: Not Found"
     }
   ]

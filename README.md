@@ -4,9 +4,9 @@ Scans the `store.nvim` plugin database and flags suspicious plugins.
 
 - Raw JSON report: [report.json](https://raw.githubusercontent.com/phanen/nvim-suspicious-plugin-scanner/master/report.json)
 
-- Last updated: `2026-08-09T03:24:29+00:00`
+- Last updated: `2026-08-10T03:43:36+00:00`
 - Database: [https://github.com/alex-popov-tech/store.nvim.crawler/releases/latest/download/db_minified.json](https://github.com/alex-popov-tech/store.nvim.crawler/releases/latest/download/db_minified.json)
-- GitHub plugins scanned: `6635`
+- GitHub plugins scanned: `6641`
 - Suspicious plugins: `4`
 - README fetch errors: `2`
 
@@ -26,7 +26,7 @@ Scans the `store.nvim` plugin database and flags suspicious plugins.
 <details>
 <summary>Show fetch errors</summary>
 
-- `devk0n/cmakex.nvim`: `HTTP Error 404: Not Found`
-- `frostplexx/mason-bridge.nvim`: `HTTP Error 404: Not Found`
+- `zerochae/dbab.nvim`: `HTTP Error 404: Not Found`
+- `zerochae/telescope-spring.nvim`: `HTTP Error 404: Not Found`
 
 </details>
