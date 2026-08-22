@@ -1,9 +1,9 @@
 {
-  "scanned_at": "2026-08-21T02:54:17+00:00",
+  "scanned_at": "2026-08-22T02:46:25+00:00",
   "database_url": "https://github.com/alex-popov-tech/store.nvim.crawler/releases/latest/download/db_minified.json",
-  "github_plugins_scanned": 6676,
+  "github_plugins_scanned": 6685,
   "suspicious_plugins": 4,
-  "readme_fetch_errors": 1,
+  "readme_fetch_errors": 0,
   "findings": [
     {
       "plugin": "basel184/nvim-pretty-ts-errors",
@@ -40,12 +40,5 @@
       ]
     }
   ],
-  "errors": [
-    {
-      "plugin": "timothyckl/tau.nvim",
-      "plugin_url": "https://github.com/timothyckl/tau.nvim",
-      "readme_url": "https://raw.githubusercontent.com/timothyckl/tau.nvim/main/README.md",
-      "error": "GithubException: 422 {'message': 'No commit found for SHA: 0000000000000000000000000000000000000000', 'documentation_url': 'https://docs.github.com/rest/commits/commits#get-a-commit', 'status': '422'}"
-    }
-  ]
+  "errors": []
 }
