@@ -1,9 +1,9 @@
 {
-  "scanned_at": "2026-08-31T07:52:26+00:00",
+  "scanned_at": "2026-09-01T06:57:47+00:00",
   "database_url": "https://github.com/alex-popov-tech/store.nvim.crawler/releases/latest/download/db_minified.json",
-  "github_plugins_scanned": 6739,
+  "github_plugins_scanned": 6740,
   "suspicious_plugins": 4,
-  "readme_fetch_errors": 2,
+  "readme_fetch_errors": 0,
   "findings": [
     {
       "plugin": "basel184/nvim-pretty-ts-errors",
@@ -40,18 +40,5 @@
       ]
     }
   ],
-  "errors": [
-    {
-      "plugin": "Anderson-Vilela-op/procman.nvim",
-      "plugin_url": "https://github.com/Anderson-Vilela-op/procman.nvim",
-      "readme_url": "https://raw.githubusercontent.com/Anderson-Vilela-op/procman.nvim/main/README.md",
-      "error": "HTTP Error 400: Bad Request"
-    },
-    {
-      "plugin": "BibekBhusal0/nvim-git-utils",
-      "plugin_url": "https://github.com/BibekBhusal0/nvim-git-utils",
-      "readme_url": "https://raw.githubusercontent.com/BibekBhusal0/nvim-git-utils/main/README.md",
-      "error": "HTTP Error 400: Bad Request"
-    }
-  ]
+  "errors": []
 }
