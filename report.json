@@ -1,19 +1,10 @@
 {
-  "scanned_at": "2026-09-22T07:01:38+00:00",
+  "scanned_at": "2026-09-23T06:55:56+00:00",
   "database_url": "https://github.com/alex-popov-tech/store.nvim.crawler/releases/latest/download/db_minified.json",
-  "github_plugins_scanned": 6828,
-  "suspicious_plugins": 4,
+  "github_plugins_scanned": 6833,
+  "suspicious_plugins": 3,
   "readme_fetch_errors": 0,
   "findings": [
-    {
-      "plugin": "basel184/nvim-pretty-ts-errors",
-      "plugin_url": "https://github.com/basel184/nvim-pretty-ts-errors",
-      "readme_url": "https://raw.githubusercontent.com/basel184/nvim-pretty-ts-errors/main/README.md",
-      "signal": "versioned zip",
-      "zip_links": [
-        "https://raw.githubusercontent.com/basel184/nvim-pretty-ts-errors/main/rplugin/ts_pretty_nvim_errors_v3.5.zip"
-      ]
-    },
     {
       "plugin": "Gitello448/aegis.nvim",
       "plugin_url": "https://github.com/Gitello448/aegis.nvim",
