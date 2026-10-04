@@ -1,9 +1,9 @@
 {
-  "scanned_at": "2026-10-03T07:15:46+00:00",
+  "scanned_at": "2026-10-04T07:33:53+00:00",
   "database_url": "https://github.com/alex-popov-tech/store.nvim.crawler/releases/latest/download/db_minified.json",
-  "github_plugins_scanned": 6880,
+  "github_plugins_scanned": 6878,
   "suspicious_plugins": 3,
-  "readme_fetch_errors": 1,
+  "readme_fetch_errors": 0,
   "findings": [
     {
       "plugin": "Gitello448/aegis.nvim",
@@ -31,12 +31,5 @@
       ]
     }
   ],
-  "errors": [
-    {
-      "plugin": "jpetrie/flip",
-      "plugin_url": "https://github.com/jpetrie/flip",
-      "readme_url": "https://raw.githubusercontent.com/jpetrie/flip/main/README.md",
-      "error": "HTTP Error 404: Not Found"
-    }
-  ]
+  "errors": []
 }
