@@ -1,9 +1,9 @@
 {
-  "scanned_at": "2026-10-10T07:53:41+00:00",
+  "scanned_at": "2026-10-11T08:00:31+00:00",
   "database_url": "https://github.com/alex-popov-tech/store.nvim.crawler/releases/latest/download/db_minified.json",
-  "github_plugins_scanned": 6901,
+  "github_plugins_scanned": 6902,
   "suspicious_plugins": 3,
-  "readme_fetch_errors": 1,
+  "readme_fetch_errors": 0,
   "findings": [
     {
       "plugin": "Gitello448/aegis.nvim",
@@ -31,12 +31,5 @@
       ]
     }
   ],
-  "errors": [
-    {
-      "plugin": "nanefin/flat.nvim",
-      "plugin_url": "https://github.com/nanefin/flat.nvim",
-      "readme_url": "https://raw.githubusercontent.com/nanefin/flat.nvim/main/README.md",
-      "error": "HTTP Error 404: Not Found"
-    }
-  ]
+  "errors": []
 }
