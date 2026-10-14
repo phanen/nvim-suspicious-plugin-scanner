@@ -4,11 +4,11 @@ Scans the `store.nvim` plugin database and flags suspicious plugins.
 
 - Raw JSON report: [report.json](https://raw.githubusercontent.com/phanen/nvim-suspicious-plugin-scanner/master/report.json)
 
-- Last updated: `2026-10-13T08:41:08+00:00`
+- Last updated: `2026-10-14T06:53:03+00:00`
 - Database: [https://github.com/alex-popov-tech/store.nvim.crawler/releases/latest/download/db_minified.json](https://github.com/alex-popov-tech/store.nvim.crawler/releases/latest/download/db_minified.json)
-- GitHub plugins scanned: `6910`
+- GitHub plugins scanned: `6900`
 - Suspicious plugins: `3`
-- README fetch errors: `16`
+- README fetch errors: `1`
 
 ## Suspicious Plugins
 
@@ -20,26 +20,11 @@ Scans the `store.nvim` plugin database and flags suspicious plugins.
 
 ## Fetch Errors
 
-16 README requests failed during this run.
+1 README requests failed during this run.
 
 <details>
 <summary>Show fetch errors</summary>
 
-- `beixiyo/vv-dashboard.nvim`: `HTTP Error 404: Not Found`
-- `beixiyo/vv-expand.nvim`: `HTTP Error 404: Not Found`
-- `beixiyo/vv-explorer.nvim`: `HTTP Error 404: Not Found`
-- `beixiyo/vv-git.nvim`: `HTTP Error 404: Not Found`
-- `beixiyo/vv-hover.nvim`: `HTTP Error 404: Not Found`
-- `beixiyo/vv-i18n.nvim`: `HTTP Error 404: Not Found`
-- `beixiyo/vv-icons.nvim`: `HTTP Error 404: Not Found`
-- `beixiyo/vv-indent.nvim`: `HTTP Error 404: Not Found`
-- `beixiyo/vv-log-hl.nvim`: `HTTP Error 404: Not Found`
-- `beixiyo/vv-markdown.nvim`: `HTTP Error 404: Not Found`
-- `beixiyo/vv-replace.nvim`: `HTTP Error 404: Not Found`
-- `beixiyo/vv-scrollbar.nvim`: `HTTP Error 404: Not Found`
-- `beixiyo/vv-statuscol.nvim`: `HTTP Error 404: Not Found`
-- `beixiyo/vv-task-panel.nvim`: `HTTP Error 404: Not Found`
-- `beixiyo/vv-translate.nvim`: `HTTP Error 404: Not Found`
-- `beixiyo/vv-utils.nvim`: `HTTP Error 404: Not Found`
+- `markosnarinian/distill.nvim`: `GithubException: 429 {'message': 'This endpoint is temporarily being throttled. Please try again later. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service)', 'documentation_url': 'https://docs.github.com/rest/using-the-rest-api/rate-limits-for-the-rest-api', 'status': '429'}`
 
 </details>

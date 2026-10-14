@@ -1,9 +1,9 @@
 {
-  "scanned_at": "2026-10-13T08:41:08+00:00",
+  "scanned_at": "2026-10-14T06:53:03+00:00",
   "database_url": "https://github.com/alex-popov-tech/store.nvim.crawler/releases/latest/download/db_minified.json",
-  "github_plugins_scanned": 6910,
+  "github_plugins_scanned": 6900,
   "suspicious_plugins": 3,
-  "readme_fetch_errors": 16,
+  "readme_fetch_errors": 1,
   "findings": [
     {
       "plugin": "Gitello448/aegis.nvim",
@@ -33,100 +33,10 @@
   ],
   "errors": [
     {
-      "plugin": "beixiyo/vv-dashboard.nvim",
-      "plugin_url": "https://github.com/beixiyo/vv-dashboard.nvim",
-      "readme_url": "https://raw.githubusercontent.com/beixiyo/vv-dashboard.nvim/main/README.md",
-      "error": "HTTP Error 404: Not Found"
-    },
-    {
-      "plugin": "beixiyo/vv-expand.nvim",
-      "plugin_url": "https://github.com/beixiyo/vv-expand.nvim",
-      "readme_url": "https://raw.githubusercontent.com/beixiyo/vv-expand.nvim/main/README.md",
-      "error": "HTTP Error 404: Not Found"
-    },
-    {
-      "plugin": "beixiyo/vv-explorer.nvim",
-      "plugin_url": "https://github.com/beixiyo/vv-explorer.nvim",
-      "readme_url": "https://raw.githubusercontent.com/beixiyo/vv-explorer.nvim/main/README.md",
-      "error": "HTTP Error 404: Not Found"
-    },
-    {
-      "plugin": "beixiyo/vv-git.nvim",
-      "plugin_url": "https://github.com/beixiyo/vv-git.nvim",
-      "readme_url": "https://raw.githubusercontent.com/beixiyo/vv-git.nvim/main/README.md",
-      "error": "HTTP Error 404: Not Found"
-    },
-    {
-      "plugin": "beixiyo/vv-hover.nvim",
-      "plugin_url": "https://github.com/beixiyo/vv-hover.nvim",
-      "readme_url": "https://raw.githubusercontent.com/beixiyo/vv-hover.nvim/main/README.md",
-      "error": "HTTP Error 404: Not Found"
-    },
-    {
-      "plugin": "beixiyo/vv-i18n.nvim",
-      "plugin_url": "https://github.com/beixiyo/vv-i18n.nvim",
-      "readme_url": "https://raw.githubusercontent.com/beixiyo/vv-i18n.nvim/main/README.md",
-      "error": "HTTP Error 404: Not Found"
-    },
-    {
-      "plugin": "beixiyo/vv-icons.nvim",
-      "plugin_url": "https://github.com/beixiyo/vv-icons.nvim",
-      "readme_url": "https://raw.githubusercontent.com/beixiyo/vv-icons.nvim/main/README.md",
-      "error": "HTTP Error 404: Not Found"
-    },
-    {
-      "plugin": "beixiyo/vv-indent.nvim",
-      "plugin_url": "https://github.com/beixiyo/vv-indent.nvim",
-      "readme_url": "https://raw.githubusercontent.com/beixiyo/vv-indent.nvim/main/README.md",
-      "error": "HTTP Error 404: Not Found"
-    },
-    {
-      "plugin": "beixiyo/vv-log-hl.nvim",
-      "plugin_url": "https://github.com/beixiyo/vv-log-hl.nvim",
-      "readme_url": "https://raw.githubusercontent.com/beixiyo/vv-log-hl.nvim/main/README.md",
-      "error": "HTTP Error 404: Not Found"
-    },
-    {
-      "plugin": "beixiyo/vv-markdown.nvim",
-      "plugin_url": "https://github.com/beixiyo/vv-markdown.nvim",
-      "readme_url": "https://raw.githubusercontent.com/beixiyo/vv-markdown.nvim/main/README.md",
-      "error": "HTTP Error 404: Not Found"
-    },
-    {
-      "plugin": "beixiyo/vv-replace.nvim",
-      "plugin_url": "https://github.com/beixiyo/vv-replace.nvim",
-      "readme_url": "https://raw.githubusercontent.com/beixiyo/vv-replace.nvim/main/README.md",
-      "error": "HTTP Error 404: Not Found"
-    },
-    {
-      "plugin": "beixiyo/vv-scrollbar.nvim",
-      "plugin_url": "https://github.com/beixiyo/vv-scrollbar.nvim",
-      "readme_url": "https://raw.githubusercontent.com/beixiyo/vv-scrollbar.nvim/main/README.md",
-      "error": "HTTP Error 404: Not Found"
-    },
-    {
-      "plugin": "beixiyo/vv-statuscol.nvim",
-      "plugin_url": "https://github.com/beixiyo/vv-statuscol.nvim",
-      "readme_url": "https://raw.githubusercontent.com/beixiyo/vv-statuscol.nvim/main/README.md",
-      "error": "HTTP Error 404: Not Found"
-    },
-    {
-      "plugin": "beixiyo/vv-task-panel.nvim",
-      "plugin_url": "https://github.com/beixiyo/vv-task-panel.nvim",
-      "readme_url": "https://raw.githubusercontent.com/beixiyo/vv-task-panel.nvim/main/README.md",
-      "error": "HTTP Error 404: Not Found"
-    },
-    {
-      "plugin": "beixiyo/vv-translate.nvim",
-      "plugin_url": "https://github.com/beixiyo/vv-translate.nvim",
-      "readme_url": "https://raw.githubusercontent.com/beixiyo/vv-translate.nvim/main/README.md",
-      "error": "HTTP Error 404: Not Found"
-    },
-    {
-      "plugin": "beixiyo/vv-utils.nvim",
-      "plugin_url": "https://github.com/beixiyo/vv-utils.nvim",
-      "readme_url": "https://raw.githubusercontent.com/beixiyo/vv-utils.nvim/main/README.md",
-      "error": "HTTP Error 404: Not Found"
+      "plugin": "markosnarinian/distill.nvim",
+      "plugin_url": "https://github.com/markosnarinian/distill.nvim",
+      "readme_url": "https://raw.githubusercontent.com/markosnarinian/distill.nvim/main/README.md",
+      "error": "GithubException: 429 {'message': 'This endpoint is temporarily being throttled. Please try again later. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service)', 'documentation_url': 'https://docs.github.com/rest/using-the-rest-api/rate-limits-for-the-rest-api', 'status': '429'}"
     }
   ]
 }
