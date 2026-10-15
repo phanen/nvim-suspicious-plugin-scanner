@@ -4,11 +4,11 @@ Scans the `store.nvim` plugin database and flags suspicious plugins.
 
 - Raw JSON report: [report.json](https://raw.githubusercontent.com/phanen/nvim-suspicious-plugin-scanner/master/report.json)
 
-- Last updated: `2026-10-14T06:53:03+00:00`
+- Last updated: `2026-10-15T06:41:52+00:00`
 - Database: [https://github.com/alex-popov-tech/store.nvim.crawler/releases/latest/download/db_minified.json](https://github.com/alex-popov-tech/store.nvim.crawler/releases/latest/download/db_minified.json)
-- GitHub plugins scanned: `6900`
+- GitHub plugins scanned: `6906`
 - Suspicious plugins: `3`
-- README fetch errors: `1`
+- README fetch errors: `16`
 
 ## Suspicious Plugins
 
@@ -20,11 +20,26 @@ Scans the `store.nvim` plugin database and flags suspicious plugins.
 
 ## Fetch Errors
 
-1 README requests failed during this run.
+16 README requests failed during this run.
 
 <details>
 <summary>Show fetch errors</summary>
 
-- `markosnarinian/distill.nvim`: `GithubException: 429 {'message': 'This endpoint is temporarily being throttled. Please try again later. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service)', 'documentation_url': 'https://docs.github.com/rest/using-the-rest-api/rate-limits-for-the-rest-api', 'status': '429'}`
+- `afewyards/codereview.nvim`: `HTTP Error 404: Not Found`
+- `Anderson-Vilela-op/procman.nvim`: `HTTP Error 404: Not Found`
+- `chewbakartik/editorfold.nvim`: `HTTP Error 404: Not Found`
+- `dmshvedchenko/persist.nvim`: `HTTP Error 404: Not Found`
+- `DrKJeff16/pipenv.nvim`: `GithubException: 409 {'message': 'Git Repository is empty.', 'documentation_url': 'https://docs.github.com/rest/commits/commits#get-a-commit', 'status': '409'}`
+- `grapp-dev/nui-components.nvim`: `HTTP Error 404: Not Found`
+- `hamzamogni/zed_onedark.nvim`: `HTTP Error 404: Not Found`
+- `hase808/neovim-gitlab-snippets`: `HTTP Error 404: Not Found`
+- `jmbuhr/otter.nvim`: `HTTP Error 404: Not Found`
+- `kyoh86/denops-zenn_dev.vim`: `HTTP Error 404: Not Found`
+- `maralla/completor.vim`: `HTTP Error 404: Not Found`
+- `nvim-neotest/neotest`: `HTTP Error 404: Not Found`
+- `nvim-telescope/telescope-fzf-native.nvim`: `HTTP Error 404: Not Found`
+- `refractalize/oil-git-status.nvim`: `HTTP Error 404: Not Found`
+- `stykhomyrov/vim-glsl`: `HTTP Error 404: Not Found`
+- `tenxsoydev/karen-yank.nvim`: `HTTP Error 404: Not Found`
 
 </details>

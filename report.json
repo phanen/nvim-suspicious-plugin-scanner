@@ -1,9 +1,9 @@
 {
-  "scanned_at": "2026-10-14T06:53:03+00:00",
+  "scanned_at": "2026-10-15T06:41:52+00:00",
   "database_url": "https://github.com/alex-popov-tech/store.nvim.crawler/releases/latest/download/db_minified.json",
-  "github_plugins_scanned": 6900,
+  "github_plugins_scanned": 6906,
   "suspicious_plugins": 3,
-  "readme_fetch_errors": 1,
+  "readme_fetch_errors": 16,
   "findings": [
     {
       "plugin": "Gitello448/aegis.nvim",
@@ -33,10 +33,100 @@
   ],
   "errors": [
     {
-      "plugin": "markosnarinian/distill.nvim",
-      "plugin_url": "https://github.com/markosnarinian/distill.nvim",
-      "readme_url": "https://raw.githubusercontent.com/markosnarinian/distill.nvim/main/README.md",
-      "error": "GithubException: 429 {'message': 'This endpoint is temporarily being throttled. Please try again later. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service)', 'documentation_url': 'https://docs.github.com/rest/using-the-rest-api/rate-limits-for-the-rest-api', 'status': '429'}"
+      "plugin": "afewyards/codereview.nvim",
+      "plugin_url": "https://github.com/afewyards/codereview.nvim",
+      "readme_url": "https://raw.githubusercontent.com/afewyards/codereview.nvim/main/README.md",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "plugin": "Anderson-Vilela-op/procman.nvim",
+      "plugin_url": "https://github.com/Anderson-Vilela-op/procman.nvim",
+      "readme_url": "https://raw.githubusercontent.com/Anderson-Vilela-op/procman.nvim/main/README.md",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "plugin": "chewbakartik/editorfold.nvim",
+      "plugin_url": "https://github.com/chewbakartik/editorfold.nvim",
+      "readme_url": "https://raw.githubusercontent.com/chewbakartik/editorfold.nvim/main/README.md",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "plugin": "dmshvedchenko/persist.nvim",
+      "plugin_url": "https://github.com/dmshvedchenko/persist.nvim",
+      "readme_url": "https://raw.githubusercontent.com/dmshvedchenko/persist.nvim/main/README.md",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "plugin": "DrKJeff16/pipenv.nvim",
+      "plugin_url": "https://github.com/DrKJeff16/pipenv.nvim",
+      "readme_url": "https://raw.githubusercontent.com/DrKJeff16/pipenv.nvim/main/README.md",
+      "error": "GithubException: 409 {'message': 'Git Repository is empty.', 'documentation_url': 'https://docs.github.com/rest/commits/commits#get-a-commit', 'status': '409'}"
+    },
+    {
+      "plugin": "grapp-dev/nui-components.nvim",
+      "plugin_url": "https://github.com/grapp-dev/nui-components.nvim",
+      "readme_url": "https://raw.githubusercontent.com/grapp-dev/nui-components.nvim/main/README.md",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "plugin": "hamzamogni/zed_onedark.nvim",
+      "plugin_url": "https://github.com/hamzamogni/zed_onedark.nvim",
+      "readme_url": "https://raw.githubusercontent.com/hamzamogni/zed_onedark.nvim/main/README.md",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "plugin": "hase808/neovim-gitlab-snippets",
+      "plugin_url": "https://github.com/hase808/neovim-gitlab-snippets",
+      "readme_url": "https://raw.githubusercontent.com/hase808/neovim-gitlab-snippets/main/README.md",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "plugin": "jmbuhr/otter.nvim",
+      "plugin_url": "https://github.com/jmbuhr/otter.nvim",
+      "readme_url": "https://raw.githubusercontent.com/jmbuhr/otter.nvim/main/README.md",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "plugin": "kyoh86/denops-zenn_dev.vim",
+      "plugin_url": "https://github.com/kyoh86/denops-zenn_dev.vim",
+      "readme_url": "https://raw.githubusercontent.com/kyoh86/denops-zenn_dev.vim/main/README.md",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "plugin": "maralla/completor.vim",
+      "plugin_url": "https://github.com/maralla/completor.vim",
+      "readme_url": "https://raw.githubusercontent.com/maralla/completor.vim/master/README.md",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "plugin": "nvim-neotest/neotest",
+      "plugin_url": "https://github.com/nvim-neotest/neotest",
+      "readme_url": "https://raw.githubusercontent.com/nvim-neotest/neotest/master/README.md",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "plugin": "nvim-telescope/telescope-fzf-native.nvim",
+      "plugin_url": "https://github.com/nvim-telescope/telescope-fzf-native.nvim",
+      "readme_url": "https://raw.githubusercontent.com/nvim-telescope/telescope-fzf-native.nvim/main/README.md",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "plugin": "refractalize/oil-git-status.nvim",
+      "plugin_url": "https://github.com/refractalize/oil-git-status.nvim",
+      "readme_url": "https://raw.githubusercontent.com/refractalize/oil-git-status.nvim/main/README.md",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "plugin": "stykhomyrov/vim-glsl",
+      "plugin_url": "https://github.com/stykhomyrov/vim-glsl",
+      "readme_url": "https://raw.githubusercontent.com/stykhomyrov/vim-glsl/master/README.md",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "plugin": "tenxsoydev/karen-yank.nvim",
+      "plugin_url": "https://github.com/tenxsoydev/karen-yank.nvim",
+      "readme_url": "https://raw.githubusercontent.com/tenxsoydev/karen-yank.nvim/main/README.md",
+      "error": "HTTP Error 404: Not Found"
     }
   ]
 }
