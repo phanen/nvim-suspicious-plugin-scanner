@@ -1,9 +1,9 @@
 {
-  "scanned_at": "2026-10-17T06:22:19+00:00",
+  "scanned_at": "2026-10-18T06:47:14+00:00",
   "database_url": "https://github.com/alex-popov-tech/store.nvim.crawler/releases/latest/download/db_minified.json",
-  "github_plugins_scanned": 6906,
+  "github_plugins_scanned": 6909,
   "suspicious_plugins": 3,
-  "readme_fetch_errors": 1,
+  "readme_fetch_errors": 0,
   "findings": [
     {
       "plugin": "Gitello448/aegis.nvim",
@@ -31,12 +31,5 @@
       ]
     }
   ],
-  "errors": [
-    {
-      "plugin": "dgrco/dusk.nvim",
-      "plugin_url": "https://github.com/dgrco/dusk.nvim",
-      "readme_url": "https://raw.githubusercontent.com/dgrco/dusk.nvim/main/README.md",
-      "error": "HTTP Error 404: Not Found"
-    }
-  ]
+  "errors": []
 }
