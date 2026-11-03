@@ -4,11 +4,11 @@ Scans the `store.nvim` plugin database and flags suspicious plugins.
 
 - Raw JSON report: [report.json](https://raw.githubusercontent.com/phanen/nvim-suspicious-plugin-scanner/master/report.json)
 
-- Last updated: `2026-11-02T08:35:36+00:00`
+- Last updated: `2026-11-03T08:48:33+00:00`
 - Database: [https://github.com/alex-popov-tech/store.nvim.crawler/releases/latest/download/db_minified.json](https://github.com/alex-popov-tech/store.nvim.crawler/releases/latest/download/db_minified.json)
 - GitHub plugins scanned: `6998`
 - Suspicious plugins: `2`
-- README fetch errors: `0`
+- README fetch errors: `1`
 
 ## Suspicious Plugins
 
@@ -16,3 +16,14 @@ Scans the `store.nvim` plugin database and flags suspicious plugins.
 | --- | --- | --- | --- |
 | [Gitello448/aegis.nvim](https://github.com/Gitello448/aegis.nvim) | [raw](https://raw.githubusercontent.com/Gitello448/aegis.nvim/master/README.md) | - | `4x force_push + update readme` |
 | [m4r3k1598-lang/replua.nvim](https://github.com/m4r3k1598-lang/replua.nvim) | [raw](https://raw.githubusercontent.com/m4r3k1598-lang/replua.nvim/main/README.md) | [zip](https://raw.githubusercontent.com/m4r3k1598-lang/replua.nvim/main/plugin/replua-nvim-geotilla.zip) | `4x force_push + update readme` |
+
+## Fetch Errors
+
+1 README requests failed during this run.
+
+<details>
+<summary>Show fetch errors</summary>
+
+- `zolinthecow/nvim-claude`: `HTTP Error 404: Not Found`
+
+</details>
