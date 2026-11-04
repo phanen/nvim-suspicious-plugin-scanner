@@ -1,9 +1,9 @@
 {
-  "scanned_at": "2026-11-03T08:48:33+00:00",
+  "scanned_at": "2026-11-04T08:17:50+00:00",
   "database_url": "https://github.com/alex-popov-tech/store.nvim.crawler/releases/latest/download/db_minified.json",
-  "github_plugins_scanned": 6998,
+  "github_plugins_scanned": 7008,
   "suspicious_plugins": 2,
-  "readme_fetch_errors": 1,
+  "readme_fetch_errors": 2,
   "findings": [
     {
       "plugin": "Gitello448/aegis.nvim",
@@ -24,9 +24,15 @@
   ],
   "errors": [
     {
-      "plugin": "zolinthecow/nvim-claude",
-      "plugin_url": "https://github.com/zolinthecow/nvim-claude",
-      "readme_url": "https://raw.githubusercontent.com/zolinthecow/nvim-claude/master/README.md",
+      "plugin": "dkooll/bouncer.nvim",
+      "plugin_url": "https://github.com/dkooll/bouncer.nvim",
+      "readme_url": "https://raw.githubusercontent.com/dkooll/bouncer.nvim/main/README.md",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "plugin": "dkooll/diffy.nvim",
+      "plugin_url": "https://github.com/dkooll/diffy.nvim",
+      "readme_url": "https://raw.githubusercontent.com/dkooll/diffy.nvim/main/README.md",
       "error": "HTTP Error 404: Not Found"
     }
   ]

@@ -4,11 +4,11 @@ Scans the `store.nvim` plugin database and flags suspicious plugins.
 
 - Raw JSON report: [report.json](https://raw.githubusercontent.com/phanen/nvim-suspicious-plugin-scanner/master/report.json)
 
-- Last updated: `2026-11-03T08:48:33+00:00`
+- Last updated: `2026-11-04T08:17:50+00:00`
 - Database: [https://github.com/alex-popov-tech/store.nvim.crawler/releases/latest/download/db_minified.json](https://github.com/alex-popov-tech/store.nvim.crawler/releases/latest/download/db_minified.json)
-- GitHub plugins scanned: `6998`
+- GitHub plugins scanned: `7008`
 - Suspicious plugins: `2`
-- README fetch errors: `1`
+- README fetch errors: `2`
 
 ## Suspicious Plugins
 
@@ -19,11 +19,12 @@ Scans the `store.nvim` plugin database and flags suspicious plugins.
 
 ## Fetch Errors
 
-1 README requests failed during this run.
+2 README requests failed during this run.
 
 <details>
 <summary>Show fetch errors</summary>
 
-- `zolinthecow/nvim-claude`: `HTTP Error 404: Not Found`
+- `dkooll/bouncer.nvim`: `HTTP Error 404: Not Found`
+- `dkooll/diffy.nvim`: `HTTP Error 404: Not Found`
 
 </details>
