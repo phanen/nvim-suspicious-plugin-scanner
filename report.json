@@ -1,19 +1,9 @@
 {
-  "scanned_at": "2026-11-12T08:57:09+00:00",
+  "scanned_at": "2026-11-13T08:53:34+00:00",
   "database_url": "https://github.com/alex-popov-tech/store.nvim.crawler/releases/latest/download/db_minified.json",
-  "github_plugins_scanned": 6795,
-  "suspicious_plugins": 1,
+  "github_plugins_scanned": 7046,
+  "suspicious_plugins": 0,
   "readme_fetch_errors": 0,
-  "findings": [
-    {
-      "plugin": "m4r3k1598-lang/replua.nvim",
-      "plugin_url": "https://github.com/m4r3k1598-lang/replua.nvim",
-      "readme_url": "https://raw.githubusercontent.com/m4r3k1598-lang/replua.nvim/main/README.md",
-      "signal": "4x force_push + update readme",
-      "zip_links": [
-        "https://raw.githubusercontent.com/m4r3k1598-lang/replua.nvim/main/plugin/replua-nvim-geotilla.zip"
-      ]
-    }
-  ],
+  "findings": [],
   "errors": []
 }
