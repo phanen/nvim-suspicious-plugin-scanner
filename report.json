@@ -1,9 +1,16 @@
 {
-  "scanned_at": "2026-11-13T08:53:34+00:00",
+  "scanned_at": "2026-11-14T08:17:08+00:00",
   "database_url": "https://github.com/alex-popov-tech/store.nvim.crawler/releases/latest/download/db_minified.json",
-  "github_plugins_scanned": 7046,
+  "github_plugins_scanned": 7054,
   "suspicious_plugins": 0,
-  "readme_fetch_errors": 0,
+  "readme_fetch_errors": 1,
   "findings": [],
-  "errors": []
+  "errors": [
+    {
+      "plugin": "Cyan903/gremlins.nvim",
+      "plugin_url": "https://github.com/Cyan903/gremlins.nvim",
+      "readme_url": "https://raw.githubusercontent.com/Cyan903/gremlins.nvim/main/README.md",
+      "error": "HTTP Error 404: Not Found"
+    }
+  ]
 }
