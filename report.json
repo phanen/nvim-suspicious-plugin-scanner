@@ -1,15 +1,15 @@
 {
-  "scanned_at": "2026-11-23T09:58:32+00:00",
+  "scanned_at": "2026-11-24T11:47:19+00:00",
   "database_url": "https://github.com/alex-popov-tech/store.nvim.crawler/releases/latest/download/db_minified.json",
-  "github_plugins_scanned": 7091,
+  "github_plugins_scanned": 7093,
   "suspicious_plugins": 0,
   "readme_fetch_errors": 1,
   "findings": [],
   "errors": [
     {
-      "plugin": "AmaneKai/md-peek.nvim",
-      "plugin_url": "https://github.com/AmaneKai/md-peek.nvim",
-      "readme_url": "https://raw.githubusercontent.com/AmaneKai/md-peek.nvim/master/README.md",
+      "plugin": "enekos/orri",
+      "plugin_url": "https://github.com/enekos/orri",
+      "readme_url": "https://raw.githubusercontent.com/enekos/orri/master/README.md",
       "error": "HTTP Error 404: Not Found"
     }
   ]
