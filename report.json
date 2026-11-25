@@ -1,16 +1,9 @@
 {
-  "scanned_at": "2026-11-24T11:47:19+00:00",
+  "scanned_at": "2026-11-25T10:41:04+00:00",
   "database_url": "https://github.com/alex-popov-tech/store.nvim.crawler/releases/latest/download/db_minified.json",
-  "github_plugins_scanned": 7093,
+  "github_plugins_scanned": 7098,
   "suspicious_plugins": 0,
-  "readme_fetch_errors": 1,
+  "readme_fetch_errors": 0,
   "findings": [],
-  "errors": [
-    {
-      "plugin": "enekos/orri",
-      "plugin_url": "https://github.com/enekos/orri",
-      "readme_url": "https://raw.githubusercontent.com/enekos/orri/master/README.md",
-      "error": "HTTP Error 404: Not Found"
-    }
-  ]
+  "errors": []
 }
